@@ -1,0 +1,68 @@
+/* Placement Optimizer Animations */
+
+.tier-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tier-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Tier transition animation */
+@keyframes tierTransition {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+.tier-transition {
+  animation: tierTransition 1s ease-in-out;
+}
+
+/* Savings highlight */
+.savings-highlight {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* Priority pulse */
+@keyframes priorityPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(244, 67, 54, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+  }
+}
+
+.priority-high {
+  animation: priorityPulse 2s infinite;
+}
+
+/* Temperature gradient */
+.temperature-hot {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+}
+
+.temperature-warm {
+  background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+}
+
+.temperature-cold {
+  background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
+}
+
+.temperature-archive {
+  background: linear-gradient(135deg, #9b59b6 0%, #6c5ce7 100%);
+}

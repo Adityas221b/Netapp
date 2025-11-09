@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflux-frontend
+  namespace: cloudflux
+  labels:
+    app: cloudflux-frontend
+    tier: frontend
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: cloudflux-frontend
+  template:
+    metadata:
+      labels:
+        app: cloudflux-frontend
+        tier: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: cloudflux-frontend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+          name: http
+        env:
+        - name: REACT_APP_API_URL
+          value: "http://cloudflux-backend:8000"
+        - name: REACT_APP_WS_URL
+          value: "ws://cloudflux-backend:8000"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudflux-frontend
+  namespace: cloudflux
+  labels:
+    app: cloudflux-frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: cloudflux-frontend
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+    name: http

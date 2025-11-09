@@ -1,0 +1,43 @@
+INFO:     Started server process [60324]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:39500 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39514 - "POST /api/data/objects/batch-create?count=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38886 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:38896 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:34320 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52536 - "GET /api/analytics/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52546 - "GET /api/analytics/costs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52558 - "GET /api/analytics/performance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52560 - "GET /api/data/tiers/distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52560 - "GET /api/analytics/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52558 - "GET /api/analytics/costs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52546 - "GET /api/analytics/performance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52536 - "GET /api/data/tiers/distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52536 - "GET /api/analytics/trends HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52536 - "GET /api/analytics/trends HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34742 - "GET /api/analytics/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34748 - "GET /api/analytics/costs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34758 - "GET /api/analytics/performance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34774 - "GET /api/data/tiers/distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34672 - "GET /api/analytics/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34674 - "GET /api/analytics/costs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34682 - "GET /api/analytics/performance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34690 - "GET /api/data/tiers/distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42964 - "GET /api/analytics/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42974 - "GET /api/analytics/costs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42982 - "GET /api/analytics/performance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42984 - "GET /api/data/tiers/distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44086 - "GET /api/analytics/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44094 - "GET /api/analytics/costs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44096 - "GET /api/analytics/performance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44112 - "GET /api/data/tiers/distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54170 - "GET /api/analytics/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54182 - "GET /api/analytics/costs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54192 - "GET /api/analytics/performance HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54198 - "GET /api/data/tiers/distribution HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [60324]

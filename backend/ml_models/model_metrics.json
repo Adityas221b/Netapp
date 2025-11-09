@@ -1,0 +1,28 @@
+{
+  "model_name": "Random Forest Access Predictor",
+  "model_type": "RandomForestRegressor",
+  "training_date": "2025-11-09T06:58:20.118953",
+  "training_samples": 7120,
+  "test_samples": 140,
+  "metrics": {
+    "mae": 4.523,
+    "r2_score": 0.9245,
+    "accuracy_percentage": 84.4,
+    "train_r2_score": 0.9404
+  },
+  "features": [
+    "day_of_week",
+    "hour",
+    "day_of_month",
+    "is_weekend",
+    "prev_count",
+    "avg_3d",
+    "avg_7d",
+    "max_7d"
+  ],
+  "hyperparameters": {
+    "n_estimators": 100,
+    "max_depth": 10,
+    "random_state": 42
+  }
+}

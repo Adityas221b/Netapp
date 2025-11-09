@@ -1,0 +1,102 @@
+version: '3.8'
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: cloudflux-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - cloudflux-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: cloudflux-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    networks:
+      - cloudflux-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: cloudflux-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - cloudflux-network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: cloudflux-postgres
+    environment:
+      POSTGRES_USER: cloudflux
+      POSTGRES_PASSWORD: cloudflux123
+      POSTGRES_DB: cloudflux_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cloudflux-network
+
+  backend:
+    build:
+      context: ../../backend
+      dockerfile: Dockerfile
+    container_name: cloudflux-backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+      - kafka
+    environment:
+      DATABASE_URL: postgresql://cloudflux:cloudflux123@postgres:5432/cloudflux_db
+      REDIS_URL: redis://redis:6379
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      PYTHONUNBUFFERED: 1
+    volumes:
+      - ../../backend:/app
+      - ../../ml:/ml
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - cloudflux-network
+
+  frontend:
+    build:
+      context: ../../frontend
+      dockerfile: Dockerfile
+    container_name: cloudflux-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ../../frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    networks:
+      - cloudflux-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  cloudflux-network:
+    driver: bridge

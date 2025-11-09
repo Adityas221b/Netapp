@@ -597,7 +597,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 Built with ❤️ for the NetApp "Data in Motion" Hackathon 2025
 
-- **Developer**: [Your Name]
+- **Developer**: ADITYA SINGH
 - **GitHub**: https://github.com/yourusername/cloudflux-ai
 
 ---

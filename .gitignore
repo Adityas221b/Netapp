@@ -1,2 +1,48 @@
+# Dependencies
+node_modules/
+.cache/
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.venv/
+
+# Environment variables (secrets)
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build & Dist
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Logs
+*.log
+logs/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Project specific
 backend.zip
-backend.zip
+.next/
+out/
+coverage/
+
+# Large files
+*.mkv
+*.iso
+*.bin
+*.dmg

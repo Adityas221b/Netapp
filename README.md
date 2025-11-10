@@ -22,7 +22,7 @@ Watch CloudFlux AI in action! This video demonstrates the full platform capabili
 - **Multi-cloud integration** with 38+ objects from all three providers
 - **Cost optimization** calculations and savings projections
 
-▶️ **[Watch Demo Video](Demo-video.mp4)** (21 MB, 2 minutes)
+▶️ **[Watch Demo Video](Demo-video1.mp4)** (21 MB, 2 minutes)
 
 ---
 
